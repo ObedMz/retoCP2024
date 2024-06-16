@@ -3,7 +3,6 @@ package com.obed.retoCP2024.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -16,8 +15,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
     @NotNull(message = "Product cannot be null")
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 

@@ -10,10 +10,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+    /**
+     * Configures the custom OpenAPI specification.
+     *
+     * <p>Defines the API title and adds security requirements using JWT bearer tokens.</p>
+     *
+     * @return the configured OpenAPI object
+     */
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .info(new Info().title("Currency Exchange API"))
+                .info(new Info().title("Reto BCP"))
                 .addSecurityItem(new SecurityRequirement().addList("JavaInUseSecurityScheme"))
                 .components(new Components().addSecuritySchemes("JavaInUseSecurityScheme"
                         , new SecurityScheme().name("JavaInUseSecurityScheme").type(SecurityScheme.Type.HTTP)
