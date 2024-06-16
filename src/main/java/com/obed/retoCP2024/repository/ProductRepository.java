@@ -1,4 +1,4 @@
-package com.obed.retoCP2024.repositories;
+package com.obed.retoCP2024.repository;
 
 import com.obed.retoCP2024.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

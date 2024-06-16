@@ -1,6 +1,6 @@
 package com.obed.retoCP2024.services;
 
-import com.obed.retoCP2024.entities.PurchaseOrder;
+import com.obed.retoCP2024.entities.Order;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -10,15 +10,15 @@ import java.util.List;
 @Service
 public interface OrderService {
 
-    PurchaseOrder createPurchaseOrder(PurchaseOrder purchaseOrder);
+    Order createOrder(Order order);
 
-    PurchaseOrder updatePurchaseOrder(Long id, PurchaseOrder purchaseOrder);
+    Order updateOrder(Long id, Order order);
 
-    void deletePurchaseOrder(Long id);
+    void deleteOrder(Long id);
 
-    PurchaseOrder getPurchaseOrderById(Long id);
+    Order getOrderById(Long id);
 
-    List<PurchaseOrder> getAllPurchaseOrders();
+    List<Order> getAllOrders();
 
-    Page<PurchaseOrder> getAllPurchaseOrders(Pageable pageable);
+    Page<Order> getAllOrders(Pageable pageable);
 }
