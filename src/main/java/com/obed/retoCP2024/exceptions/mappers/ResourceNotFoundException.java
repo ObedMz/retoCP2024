@@ -1,4 +1,4 @@
-package com.obed.retoCP2024.exceptions;
+package com.obed.retoCP2024.exceptions.mappers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

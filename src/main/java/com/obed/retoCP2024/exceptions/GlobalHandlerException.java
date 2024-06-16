@@ -1,5 +1,6 @@
 package com.obed.retoCP2024.exceptions;
 
+import com.obed.retoCP2024.exceptions.mappers.ResourceNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
