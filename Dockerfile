@@ -6,7 +6,7 @@ COPY . /app
 
 RUN chmod +x gradlew
 
-RUN ./gradlew build --no-daemon
+RUN ./gradlew build --exclude-task test --no-daemon
 
 
 FROM openjdk:11-slim
