@@ -2,7 +2,7 @@ package com.obed.retoCP2024.services.impl;
 
 import com.obed.retoCP2024.entities.Order;
 import com.obed.retoCP2024.entities.Product;
-import com.obed.retoCP2024.exceptions.ResourceNotFoundException;
+import com.obed.retoCP2024.exceptions.mappers.ResourceNotFoundException;
 import com.obed.retoCP2024.repository.OrderRepository;
 import com.obed.retoCP2024.repository.ProductRepository;
 import com.obed.retoCP2024.services.OrderService;
