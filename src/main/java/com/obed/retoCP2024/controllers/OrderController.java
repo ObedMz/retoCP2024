@@ -26,7 +26,7 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Order>> getAll(Pageable pageable){
+    public ResponseEntity<Page<Order>> getAll(@RequestParam(required = false) Pageable pageable) {
         return ResponseEntity.ok(orderService.getAllOrders(pageable));
     }
 
@@ -40,6 +40,18 @@ public class OrderController {
     public ResponseEntity<Void> deletePurchase(@PathVariable Long id){
         orderService.deleteOrder(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/product/{productId}")
+    public ResponseEntity<Page<Order>> getOrdersByProductId(@RequestParam(required = false) Pageable pageable,
+                                                            @PathVariable Long productId) {
+        return ResponseEntity.ok(orderService.getOrdersByProductId(productId, pageable));
+    }
+
+    @GetMapping("/customer/{customerName}")
+    public ResponseEntity<Page<Order>> getOrdersByCustomerName(@RequestParam(required = false) Pageable pageable,
+                                                               @PathVariable String customerName) {
+        return ResponseEntity.ok(orderService.getOrdersByCustomerName(customerName, pageable));
     }
 
 }

@@ -70,9 +70,22 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional(readOnly = true)
     public Page<Order> getAllOrders(Pageable pageable) {
-        if(pageable == null)
-            pageable = PageRequest.of(0,20);
+        if(pageable == null) pageable = PageRequest.of(0,20);
 
         return orderRepository.findAll(pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Order> getOrdersByCustomerName(String customerName,Pageable pageable) {
+        if(pageable == null) pageable = PageRequest.of(0,20);
+        return orderRepository.findByCustomerName(customerName,pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Order> getOrdersByProductId(Long productId,Pageable pageable) {
+        if(pageable == null) pageable = PageRequest.of(0,20);
+        return orderRepository.findByProductId(productId,pageable);
     }
 }
