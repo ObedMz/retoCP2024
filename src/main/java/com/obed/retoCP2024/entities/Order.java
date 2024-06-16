@@ -3,6 +3,7 @@ package com.obed.retoCP2024.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -16,7 +17,8 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @NotNull(message = "Product cannot be null")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @NotNull(message = "Quantity cannot be null")
