@@ -21,4 +21,8 @@ public interface OrderService {
     List<Order> getAllOrders();
 
     Page<Order> getAllOrders(Pageable pageable);
+
+    Page<Order> getOrdersByCustomerName(String customerName, Pageable pageable);
+
+    Page<Order> getOrdersByProductId(Long productId, Pageable pageable);
 }
