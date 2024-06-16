@@ -13,7 +13,7 @@ FROM openjdk:11-slim
 
 WORKDIR /app
 
-COPY --from=build /app/build/libs/projects-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/build/libs/retoCP2024-0.0.1-SNAPSHOT.jar /app/app.jar
 
 EXPOSE 8080
 
