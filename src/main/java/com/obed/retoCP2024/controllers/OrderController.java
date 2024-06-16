@@ -5,8 +5,11 @@ import com.obed.retoCP2024.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -16,8 +19,8 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order){
-        return ResponseEntity.ok(orderService.createOrder(order));
+    public ResponseEntity<Order> createOrder(@Valid @RequestBody Order order){
+        return ResponseEntity.status(HttpStatus.CREATED).body(orderService.createOrder(order));
     }
 
     @GetMapping
@@ -32,8 +35,9 @@ public class OrderController {
 
 
     @DeleteMapping("/{id}")
-    public void deletePurchase(@PathVariable Long id){
+    public ResponseEntity<Void> deletePurchase(@PathVariable Long id){
         orderService.deleteOrder(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
