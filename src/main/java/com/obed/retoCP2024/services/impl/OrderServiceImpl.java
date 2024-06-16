@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.validation.ConstraintViolationException;
-import javax.validation.Valid;
-import javax.validation.Validator;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,16 +21,13 @@ import java.util.Optional;
 @Transactional(propagation = Propagation.REQUIRED)
 public class OrderServiceImpl implements OrderService {
     @Autowired
-    private Validator validator;
-    @Autowired
     private ProductRepository productRepository;
     @Autowired
     private OrderRepository orderRepository;
 
     @Override
     @Transactional
-    public Order createOrder(@Valid Order order) {
-        validateOrder(order);
+    public Order createOrder(Order order) {
 
         Product product = productRepository.findById(order.getProduct().getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found."));
@@ -41,16 +35,10 @@ public class OrderServiceImpl implements OrderService {
         order.setProduct(product);
         return orderRepository.save(order);
     }
-    private void validateOrder(Order order) {
-        var violations = validator.validate(order);
-        if (!violations.isEmpty()) {
-            throw new ConstraintViolationException(violations);
-        }
-    }
 
     @Override
     @Transactional
-    public Order updateOrder(Long id, @Valid Order purchaseOrder) {
+    public Order updateOrder(Long id, Order purchaseOrder) {
         Optional<Order> order = orderRepository.findById(id);
         if(!order.isPresent()) return orderRepository.save(purchaseOrder);
 
