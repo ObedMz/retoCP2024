@@ -1,0 +1,10 @@
+com.obed.retoCP2024
+com.obed.retoCP2024.config
+com.obed.retoCP2024.controllers
+com.obed.retoCP2024.entities
+com.obed.retoCP2024.exceptions
+com.obed.retoCP2024.exceptions.mappers
+com.obed.retoCP2024.repository
+com.obed.retoCP2024.security
+com.obed.retoCP2024.services
+com.obed.retoCP2024.services.impl
